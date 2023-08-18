@@ -10,6 +10,7 @@ from neuraspike import utils
 import numpy as np
 import argparse
 import torch
+import time
 import cv2
  
 # initialize the argument parser and establish the arguments required
@@ -73,7 +74,7 @@ while True:
         break
  
     # clone the current frame, convert it from BGR into RGB
-    frame = utils.resize_image(frame, width=1500, height=1500)
+    frame = utils.resize_image(frame, width=800, height=800)
     output = frame.copy()
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
  
@@ -102,7 +103,7 @@ while True:
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (start_x, start_y, end_x, end_y) = box.astype("int")
 
-                        # grab the region of interest within the image (the face),
+            # grab the region of interest within the image (the face),
             # apply a data transform to fit the exact method our network was trained,
             # add a new dimension (C, H, W) => (N, C, H, W) and send it to the device
             face = frame[start_y:end_y, start_x:end_x]
@@ -122,7 +123,7 @@ while True:
             emotion_prob = [p.item() for p in prob[0]]
             emotion_value = emotion_dict.values()
 
-                        # draw the probability distribution on an empty canvas initialized
+            # draw the probability distribution on an empty canvas initialized
             for (i, (emotion, prob)) in enumerate(zip(emotion_value, emotion_prob)):
                 prob_text = f"{emotion}: {prob * 100:.2f}%"
                 width = int(prob * 300)
@@ -148,6 +149,8 @@ while True:
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
+
+    time.sleep(0.2)
  
 # destroy all opened frame and clean up the video-steam
 cv2.destroyAllWindows()
