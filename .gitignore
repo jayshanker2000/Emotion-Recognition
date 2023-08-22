@@ -1,4 +1,5 @@
 myenv/
+.idea/
 .vscode/
 dataset/
 neuraspike/__pycache__
