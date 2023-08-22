@@ -2,4 +2,4 @@ myenv/
 .idea/
 .vscode/
 dataset/
-neuraspike/__pycache__
+ingenius/__pycache__

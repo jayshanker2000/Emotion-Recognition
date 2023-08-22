@@ -7,11 +7,11 @@ from torchvision.transforms import Grayscale
 from torchvision.transforms import ToTensor
 from torch.utils.data import random_split
 from torch.utils.data import DataLoader
-from neuraspike import config as cfg
-from neuraspike import EarlyStopping
-from neuraspike import LRScheduler
+from ingenius import config as cfg
+from ingenius import EarlyStopping
+from ingenius import LRScheduler
 from torchvision import transforms
-from neuraspike import EmotionNet
+from ingenius import EmotionNet
 from torchvision import datasets
 import matplotlib.pyplot as plt
 from collections import Counter

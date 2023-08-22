@@ -4,9 +4,9 @@ from torchvision.transforms import Grayscale
 from torchvision.transforms import ToTensor
 from torchvision.transforms import Resize
 from torchvision import transforms
-from neuraspike import EmotionNet
+from ingenius import EmotionNet
 import torch.nn.functional as nnf
-from neuraspike import utils
+from ingenius import utils
 import numpy as np
 import argparse
 import torch
