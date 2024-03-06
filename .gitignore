@@ -1,0 +1,7 @@
+venv/
+dataset/
+
+.idea/
+
+__pycache__/
+mood/__pycache__/
